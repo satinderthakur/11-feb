@@ -28,14 +28,7 @@ pipeline
                 }
             }
         }
-        stage('Clean Images'){
-            steps{
-                sh'''
-                    #!/bin/bash
-                    echo "hello"
-                '''
-            }
-        }
+                }
         stage('Docker Pull'){
             steps{
                 script{
