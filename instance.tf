@@ -1,6 +1,11 @@
-resource "aws_instance" "my_instance_1"{
-  ami = var.AMIS[var.AWS_REGION]
-  instance_type = var.AWS_INSTANCE
+provider "aws" {
+  profile    = "default"
+  region     = "ap-south-1"
+}
+resource "aws_instance" "example" {
+  ami           = "ami-2757f631"
+  instance_type = "t2.micro"
+  }
 
   # Public Key SSH
   key_name = aws_key_pair.mykeypair.key_name
