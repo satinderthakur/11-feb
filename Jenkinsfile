@@ -32,7 +32,7 @@ pipeline
             steps{
                 script{
                     docker.withRegistry('https://506844237526.dkr.ecr.ap-south-1.amazonaws.com', 'ecr:us-west-1:test-ecr-credentials'){
-                        sh 'docker pull 506844237526.dkr.ecr.ap-south-1.amazonaws.com/demo:latest'
+                        docker pull 506844237526.dkr.ecr.ap-south-1.amazonaws.com/demo:latest
                     }
                 }
             }
