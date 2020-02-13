@@ -28,22 +28,31 @@ pipeline
                 }
             }
         }
+        stage('Terraform Apply'){
+                                           steps{
+                                                          script{
+                                                                        sh'''
+                                                                                      #!/bin/bash
+                                                                                      terraform init
+                                                                                      terraform apply -auto-approve
+                                                                        '''
+                                                          }
+                                           }
+                             }
         stage('Docker Pull'){
             steps{
                 script{
-                    docker.withRegistry('https://506844237526.dkr.ecr.ap-south-1.amazonaws.com', 'ecr:ap-south-1:test-ecr-credentials'){
-                       sh 'docker pull 506844237526.dkr.ecr.ap-south-1.amazonaws.com/demo:latest'
-                    }
+                    sh'''ssh $(terraform output | cut -d "=" -f 2) -l ec2-user -o StrictHostKeyChecking=no -i keys/adikey "eval sudo $(aws ecr get-login --no-include-email --region us-west-1 | sed -e 's/-e none//g'); docker pull 809367851270.dkr.ecr.us-west-1.amazonaws.com/demo:latest"'''
                 }
             }
         }
         stage('Run Container'){
             steps{
                 sh '''
-                    #!/bin/bash
-                    docker run -itd -p 8080:8080 506844237526.dkr.ecr.ap-south-1.amazonaws.com/demo:latest
+                    ssh $(terraform output | cut -d "=" -f 2) -l ec2-user -o StrictHostKeyChecking=no -i keys/adikey "docker run -itd -p 8080:8080 809367851270.dkr.ecr.us-west-1.amazonaws.com/demo:latest"
                 '''
             }
         }
     }
 }
+
