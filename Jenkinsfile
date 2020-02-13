@@ -32,7 +32,7 @@ pipeline
                                            steps{
                                                           script{
                                                                         bat'''
-                                                                                      #!/bin/bash
+                                                                                     
                                                                                       terraform init
                                                                                       terraform apply -auto-approve
                                                                         '''
@@ -42,7 +42,7 @@ pipeline
         stage('Docker Pull'){
             steps{
                 script{
-                    bat'''ssh $(terraform output | cut -d "=" -f 2) -l ec2-user -o StrictHostKeyChecking=no -i keys/adikey "eval sudo $(aws ecr get-login --no-include-email --region us-west-1 | sed -e 's/-e none//g'); docker pull 809367851270.dkr.ecr.us-west-1.amazonaws.com/demo:latest"'''
+                    bat'''ssh $(terraform output | cut -d "=" -f 2) -l ec2-user -o StrictHostKeyChecking=no -i keys/adikey "eval sudo $(aws ecr get-login --no-include-email --region ap-south-1 | sed -e 's/-e none//g'); docker pull 809367851270.dkr.ecr.ap-south-1.amazonaws.com/demo:latest"'''
                 }
             }
         }
