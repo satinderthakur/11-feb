@@ -17,7 +17,7 @@ variable "AMIS" {
 variable "AWS_INSTANCE"{}
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "keys/ec2-key.pub"
+  default = "ec2-key.pub"
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
