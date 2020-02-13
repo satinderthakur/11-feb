@@ -31,8 +31,8 @@ pipeline
         stage('Docker Pull'){
             steps{
                 script{
-                    docker.withRegistry('https://506844237526.dkr.ecr.ap-south-1.amazonaws.com', 'ecr:us-west-1:test-ecr-credentials'){
-                        docker pull 506844237526.dkr.ecr.ap-south-1.amazonaws.com/demo:latest
+                    docker.withRegistry('https://506844237526.dkr.ecr.ap-south-1.amazonaws.com', 'ecr:ap-south-1:test-ecr-credentials'){
+                       sh 'docker pull 506844237526.dkr.ecr.ap-south-1.amazonaws.com/demo:latest'
                     }
                 }
             }
