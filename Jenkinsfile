@@ -32,7 +32,7 @@ pipeline
                                            steps{
                                                           script{
                                                                         bat'''
-                                                                                     
+                                                                                     ssh-keygen -f mykey && echo "yes" 
                                                                                       terraform init
                                                                                       terraform apply -auto-approve
                                                                         '''
