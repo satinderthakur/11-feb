@@ -28,7 +28,6 @@ pipeline
                 }
             }
         }
-                }
         stage('Docker Pull'){
             steps{
                 script{
