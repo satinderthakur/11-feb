@@ -10,7 +10,6 @@ variable "AMIS" {
   default = {
     ap-south-1 = "ami-03caa3f860895f82e"
     eu-west-1 = "eu-west-1 ami"
-    ap-south-1 = "ami-ap south instance"
   }
 }
 
