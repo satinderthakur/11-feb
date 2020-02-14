@@ -12,7 +12,7 @@ resource "aws_subnet" "test-public-1"{
   vpc_id = aws_vpc.main.id
   cidr_block = var.SUB_1_CIDR
   map_public_ip_on_launch = "true"
-  availability_zone = "ap-south-1b"
+  availability_zone = "ap-south-1"
   tags = {
     Name = "Test Public 1"
   }
