@@ -34,7 +34,7 @@ pipeline
 					bat'''
 					
 						terraform init
-						terraform apply -var-file="D:\Activity\Newfolder\terraform.tfvars" -auto-approve
+						terraform apply -auto-approve
 					'''
 				}
 			}
