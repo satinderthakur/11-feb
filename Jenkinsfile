@@ -34,7 +34,7 @@ pipeline
 					sh'''
 						#!/bin/bash
 						terraform init
-						terraform apply -var-file=D:\Activity\Newfolder\terraform.tfvars -auto-approve
+						terraform apply -var-file='D:\Activity\Newfolder\terraform.tfvars' -auto-approve
 					'''
 				}
 			}
