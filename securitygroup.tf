@@ -15,6 +15,6 @@ resource "aws_security_group" "allow-ssh"{
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "allow-ssh"
+    Name = "allow_all"
   }
 }
