@@ -16,7 +16,7 @@ resource "aws_instance" "my_instance_1"{
     connection{
       type = "ssh"
       host = self.public_ip
-      private_key = file("D:\Activity\Newfolder\ec2-key")
+      private_key = file("D:/Activity/Newfolder/ec2-key")
       user = "ec2-user"
     }
     inline = [
