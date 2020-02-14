@@ -10,6 +10,9 @@ resource "aws_instance" "my_instance_1"{
 
   # Security Group
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
+  
+    # Instance Role
+  iam_instance_profile = "ec2-ecr" 
 
   # Provisoner
   provisioner "remote-exec"{
