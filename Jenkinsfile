@@ -31,8 +31,8 @@ pipeline
         stage('Terraform Apply'){
 			steps{
 				script{
-					sh'''
-						#!/bin/bash
+					bat'''
+					
 						terraform init
 						terraform apply -var-file='D:\Activity\Newfolder\terraform.tfvars' -auto-approve
 					'''
