@@ -8,7 +8,7 @@ variable "AWS_SECRET_KEY"{}
 
 variable "AMIS" {
   default = {
-    ap-south-1 = "ami-03caa3f860895f82e"
+    ap-south-1 = "ami-0d9462a653c34dab7"
     eu-west-1 = "eu-west-1 ami"
     
   }
