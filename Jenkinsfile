@@ -8,7 +8,7 @@ pipeline
             {
                 script
                 {
-                    git 'https://github.com/adityasemwal/aws_terraform.git'
+                    git 'https://github.com/satinderthakur/11-feb.git'
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline
         stage('Docker Push'){
             steps{
                 script{
-                    docker.withRegistry('https://809367851270.dkr.ecr.us-west-1.amazonaws.com', 'ecr:us-west-1:test-ecr-credentials'){
+                    docker.withRegistry('https://506844237526.dkr.ecr.ap-south-1.amazonaws.com', 'ecr:ap-south-1:test-ecr-credentials'){
                         docker.image('demo').push('latest')
                     }
                 }
@@ -34,7 +34,7 @@ pipeline
 					sh'''
 						#!/bin/bash
 						terraform init
-						terraform apply -var-file=/home/jenksin/terraform.tfvars -auto-approve
+						terraform apply -var-file=D:\Activity\Newfolder\terraform.tfvars -auto-approve
 					'''
 				}
 			}
